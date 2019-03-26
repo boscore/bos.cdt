@@ -106,11 +106,14 @@ static cl::opt<bool> fuse_main_opt(
     "fuse-main",
     cl::desc("Use main as entry"),
     cl::cat(LD_CAT));
+<<<<<<< HEAD
 static cl::opt<bool> allow_sse_opt(
     "allow-sse",
     cl::desc("Should not be used, except for build libc"),
     cl::Hidden,
     cl::cat(LD_CAT));
+=======
+>>>>>>> develop
 /// End of ld options
 
 #ifndef ONLY_LD
@@ -346,13 +349,17 @@ struct Options {
    std::vector<std::string> ld_options;
    std::vector<std::string> abigen_options;
    std::vector<std::string> abigen_resources;
+<<<<<<< HEAD
    bool debug;
+=======
+>>>>>>> develop
    bool native;
 };
 
 static void GetCompDefaults(std::vector<std::string>& copts) {
    const char* eosio_apply_suff = "${CMAKE_SHARED_LIBRARY_SUFFIX}";
    std::string apply_lib;
+<<<<<<< HEAD
    if (!fnative_opt) {
       copts.emplace_back("--target=wasm32");
       copts.emplace_back("-ffreestanding");
@@ -360,10 +367,20 @@ static void GetCompDefaults(std::vector<std::string>& copts) {
       copts.emplace_back("-fno-builtin");
    } else {
       copts.emplace_back("-Wunused-command-line-argument");
+=======
+   
+   if (!fnative_opt) {
+      copts.emplace_back("--target=wasm32");
+      copts.emplace_back("-ffreestanding");
+   } else {
+      copts.emplace_back("-msoft-float");
+      copts.emplace_back("-mno-implicit-float");
+>>>>>>> develop
 #ifdef __APPLE__
       copts.emplace_back("--target=x86_64-unknown-darwin-macho");
       copts.emplace_back("-mmacosx-version-min=10.13");
       copts.emplace_back("-fno-stack-protector");
+<<<<<<< HEAD
 #else
       copts.emplace_back("--target=x86_64-unknown-linux-gnu");
 #endif
@@ -383,6 +400,27 @@ static void GetCompDefaults(std::vector<std::string>& copts) {
       copts.emplace_back("-fno-rtti");
       copts.emplace_back("-fmodules-ts");
 #endif
+=======
+      copts.emplace_back("-m64");
+#else
+      copts.emplace_back("--target=x86_64-unknown-linux-gnu");
+      copts.emplace_back("-m64");
+#endif
+      if (!fasm_opt) {
+         copts.emplace_back("-DEOSIO_NATIVE");
+         copts.emplace_back("-DLP64");
+      }
+   }
+   //copts.emplace_back("-nostdlib");
+
+   if (!fasm_opt) {
+      copts.emplace_back("-fno-threadsafe-statics");
+#ifdef CPP_COMP
+      copts.emplace_back("-fno-rtti");
+      copts.emplace_back("-fno-exceptions");
+      copts.emplace_back("-fmodules-ts");
+#endif
+>>>>>>> develop
       copts.emplace_back("-DBOOST_DISABLE_ASSERTS");
       copts.emplace_back("-DBOOST_EXCEPTION_DISABLE");
       if (!fnative_opt) {
@@ -413,10 +451,18 @@ static void GetCompDefaults(std::vector<std::string>& copts) {
 #ifdef ONLY_LD
 static void GetLdDefaults(std::vector<std::string>& ldopts) {
    if (!fnative_opt) {
+<<<<<<< HEAD
+=======
+      if (fuse_main_opt)
+         ldopts.emplace_back("-e main");
+      else
+         ldopts.emplace_back("-e apply");
+>>>>>>> develop
       ldopts.emplace_back("--gc-sections");
       ldopts.emplace_back("--strip-all");
       ldopts.emplace_back("-zstack-size="+std::string("${EOSIO_STACK_SIZE}"));
       ldopts.emplace_back("--merge-data-segments");
+<<<<<<< HEAD
       if (fquery_opt || fquery_server_opt || fquery_client_opt) {
          ldopts.emplace_back("--export-table");
          ldopts.emplace_back("-other-model");
@@ -470,6 +516,13 @@ static void GetLdDefaults(std::vector<std::string>& ldopts) {
 #endif
       ldopts.emplace_back("-static");
       ldopts.emplace_back("-lnative_c++ -lnative_c -lnative_eosio -lnative");
+=======
+   } else {
+#ifdef __APPLE__
+      ldopts.emplace_back("-arch x86_64 -macosx_version_min 10.13");
+#endif
+      ldopts.emplace_back("-static");
+>>>>>>> develop
    }
 }
 #endif
@@ -542,7 +595,11 @@ static Options CreateOptions(bool add_defaults=true) {
 #ifndef __APPLE__
    ldopts.emplace_back("-L"+eosio::cdt::whereami::where()+"/../lib64");
 #endif
+<<<<<<< HEAD
 #endif
+=======
+#endif   
+>>>>>>> develop
 #ifndef ONLY_LD
    if (!sysroot_opt.empty()) {
       copts.emplace_back("--sysroot="+sysroot_opt);
@@ -575,6 +632,7 @@ static Options CreateOptions(bool add_defaults=true) {
       agopts.emplace_back("-I"+eosio::cdt::whereami::where()+"/../include");
       agopts.emplace_back("--sysroot="+eosio::cdt::whereami::where()+"/../");
       ldopts.emplace_back("-L"+eosio::cdt::whereami::where()+"/../lib");
+<<<<<<< HEAD
 
       if (fnative_opt) {
         copts.emplace_back("-I"+eosio::cdt::whereami::where()+"/../include/eosiolib/capi");
@@ -586,6 +644,8 @@ static Options CreateOptions(bool add_defaults=true) {
       copts.emplace_back("-I"+eosio::cdt::whereami::where()+"/../include/eosiolib/core");
       copts.emplace_back("-I"+eosio::cdt::whereami::where()+"/../include/eosiolib/contracts");
 
+=======
+>>>>>>> develop
 #ifndef __APPLE__
       ldopts.emplace_back("-L"+eosio::cdt::whereami::where()+"/../lib64");
 #endif
@@ -766,9 +826,15 @@ static Options CreateOptions(bool add_defaults=true) {
       ldopts.emplace_back("-o "+o_opt);
       output_fn = o_opt;
    }
+<<<<<<< HEAD
 
    if (!fnative_opt) {
 #ifndef ONLY_LD
+=======
+   
+   if (!fnative_opt) { 
+#ifndef ONLY_LD 
+>>>>>>> develop
       if (!eosio_imports_opt.empty()) {
          ldopts.emplace_back("-eosio-imports="+eosio_imports_opt);
       }
@@ -825,6 +891,16 @@ static Options CreateOptions(bool add_defaults=true) {
       ldopts.emplace_back("-fnative");
    if (fuse_main_opt)
       ldopts.emplace_back("-fuse-main");
+<<<<<<< HEAD
 #endif
    return {output_fn, inputs, link, abigen, pp_dir, abigen_output, abigen_contract, copts, ldopts, agopts, agresources, debug, fnative_opt};
+=======
+#else
+   if (fnative_opt)
+      ldopts.emplace_back("-lnative_c++ -lnative_c -lnative_eosio -lnative");
+   else
+      ldopts.emplace_back("-lc++ -lc -leosio");
+#endif
+   return {output_fn, abigen_inputs.str(), inputs, link, abigen, pp_dir, abigen_output, abigen_contract, copts, ldopts, agopts, agresources, fnative_opt};
+>>>>>>> develop
 }

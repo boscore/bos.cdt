@@ -11,7 +11,11 @@
 /**
  * @addtogroup serialize Serialize C++ API
  * @brief Defines C++ API to serialize and deserialize object
+<<<<<<< HEAD
  * @ingroup core
+=======
+ * @ingroup cpp_api
+>>>>>>> develop
  * @{
  */
 

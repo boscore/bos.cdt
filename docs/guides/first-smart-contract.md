@@ -30,3 +30,4 @@ $ make
 This will generate two files:
 * The compiled binary wasm (hello.wasm)
 * The generated ABI file (hello.abi)
+

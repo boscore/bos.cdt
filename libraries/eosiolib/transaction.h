@@ -4,6 +4,12 @@
  */
 #pragma once
 #include "types.h"
+<<<<<<< HEAD
+=======
+#include <eosiolib/eosio.hpp>
+
+using namespace eosio;
+>>>>>>> develop
 
 #warning "<eosiolib/transaction.h> is deprecated use <eosio/transaction.h>. If you are using C++ the .h header files will be removed from inclusion entirely in v1.7.0"
 extern "C" {
@@ -89,6 +95,42 @@ extern "C" {
     */
    __attribute__((eosio_wasm_import))
    size_t transaction_size();
+
+   /**
+    * Get transaction id
+    *
+    * @param id : return id
+    */
+   void get_transaction_id( eosio::checksum256* id );
+
+   /**
+    * Get the action globally unique sequence
+    *
+    * @param seq : return sequence
+    */
+   void get_action_sequence(uint64_t* seq);
+
+   /**
+   * Tests if the account has an installed contract
+   * @param name : account name
+   * @return : Return has contract
+   */
+   bool has_contract( eosio::name name);
+
+   /**
+   * Get the code of the deployment contract
+   * @param name : account name
+   * @param code : return contract code
+   */
+   void get_contract_code( eosio::name name, eosio::checksum256* code);
+
+   /**
+    * Get the producer's signature for the action
+    * @param sig : Memory buffer
+    * @param siglen :Memory buffer size
+    * @return : Return valid data size
+    */
+   int bpsig_action_time_seed( const char* sig, size_t siglen );
 
    /**
     * Gets the block number used for TAPOS on the currently executing transaction.

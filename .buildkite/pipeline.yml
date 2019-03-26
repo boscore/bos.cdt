@@ -181,6 +181,7 @@ steps:
   - wait
 
   - command: | # High Sierra Packaging
+
         echo "--- :arrow_down: Downloading build directory" && \
         buildkite-agent artifact download "build.tar.gz" . --step ":darwin: High Sierra Build" && \
         tar -zxf build.tar.gz && \

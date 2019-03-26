@@ -1,6 +1,6 @@
 #! /bin/bash
 
-printf "\t=========== Building eosio.cdt ===========\n\n"
+printf "\t=========== Building bos.cdt ===========\n\n"
 
 RED='\033[0;31m'
 NC='\033[0m'
@@ -87,6 +87,7 @@ if [ $(( $(git submodule status --recursive | grep -c "^[+\-]") )) -gt 0 ]; then
    exit 1
 fi
 
+rm -rf build   # delete first to avoid weird error
 mkdir -p build
 pushd build &> /dev/null
 
@@ -104,17 +105,14 @@ if [ $? -ne 0 ]; then
 fi
 popd &> /dev/null
 
-printf "\n${bldred}\t      ___           ___           ___                       ___\n"
-printf "\t     /  /\\         /  /\\         /  /\\        ___          /  /\\ \n"
-printf "\t    /  /:/_       /  /::\\       /  /:/_      /  /\\        /  /::\\ \n"
-printf "\t   /  /:/ /\\     /  /:/\\:\\     /  /:/ /\\    /  /:/       /  /:/\\:\\ \n"
-printf "\t  /  /:/ /:/_   /  /:/  \\:\\   /  /:/ /::\\  /__/::\\      /  /:/  \\:\\ \n"
-printf "\t /__/:/ /:/ /\\ /__/:/ \\__\\:\\ /__/:/ /:/\\:\\ \\__\\/\\:\\__  /__/:/ \\__\\:\\ \n"
-printf "\t \\  \\:\\/:/ /:/ \\  \\:\\ /  /:/ \\  \\:\\/:/~/:/    \\  \\:\\/\\ \\  \\:\\ /  /:/ \n"
-printf "\t  \\  \\::/ /:/   \\  \\:\\  /:/   \\  \\::/ /:/      \\__\\::/  \\  \\:\\  /:/ \n"
-printf "\t   \\  \\:\\/:/     \\  \\:\\/:/     \\__\\/ /:/       /__/:/    \\  \\:\\/:/ \n"
-printf "\t    \\  \\::/       \\  \\::/        /__/:/        \\__\\/      \\  \\::/ \n"
-printf "\t     \\__\\/         \\__\\/         \\__\\/                     \\__\\/ \n${txtrst}"
+printf "\n\n${bldred}\t ______   _______  _______  _______  _______  _______  _______ \n"
+printf "\t(  ___ \ (  ___  )(  ____ \(  ____ \(  ___  )(  ____ )(  ____ \ \n"
+printf "\t| (   ) )| (   ) || (    \/| (    \/| (   ) || (    )|| (    \/\n"
+printf "\t| (__/ / | |   | || (_____ | |      | |   | || (____)|| (__    \n"
+printf "\t|  __ (  | |   | |(_____  )| |      | |   | ||     __)|  __)   \n"
+printf "\t| (  \ \ | |   | |      ) || |      | |   | || (\ (   | (      \n"
+printf "\t| )___) )| (___) |/\____) || (____/\| (___) || ) \ \__| (____/\ \n"
+printf "\t|/ \___/ (_______)\_______)(_______/(_______)|/   \__/(_______/\n\n${txtrst}"
 
 printf "\\tFor more information:\\n"
-printf "\\tEOSIO website: https://eos.io\\n"
+printf "\\tBOSCore website: https://boscore.io\\n"

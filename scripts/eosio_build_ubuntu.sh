@@ -78,7 +78,7 @@
 			printf "\\tPackage %s found.\\n" "${DEP_ARRAY[$i]}"
 			continue
 		fi
-	done		
+	done	
 
 	if [ "${COUNT}" -gt 1 ]; then
 		printf "\\n\\tThe following dependencies are required to install EOSIO.\\n"

@@ -54,7 +54,7 @@
    }
 
    install_symlinks() {
-		printf "\\n\\tInstalling EOSIO.CDT Binary Symlinks\\n\\n"
+		printf "\\n\\tInstalling BOS.CDT Binary Symlinks\\n\\n"
       create_symlink "llvm-ranlib eosio-ranlib"
       create_symlink "llvm-ar eosio-ar"
       create_symlink "llvm-objdump eosio-objdump"
@@ -89,7 +89,7 @@
    
 	if ! make install
 	then
-		printf "\\n\\t>>>>>>>>>>>>>>>>>>>> MAKE installing EOSIO has exited with the above error.\\n\\n"
+		printf "\\n\\t>>>>>>>>>>>>>>>>>>>> MAKE installing BOS.CDT has exited with the above error.\\n\\n"
 		exit -1
 	fi
    popd &> /dev/null 
@@ -97,17 +97,14 @@
    install_symlinks   
    create_cmake_symlink "eosio.cdt-config.cmake"
 
-   printf "\n${bldred}\t      ___           ___           ___                       ___\n"
-   printf "\t     /  /\\         /  /\\         /  /\\        ___          /  /\\ \n"
-   printf "\t    /  /:/_       /  /::\\       /  /:/_      /  /\\        /  /::\\ \n"
-   printf "\t   /  /:/ /\\     /  /:/\\:\\     /  /:/ /\\    /  /:/       /  /:/\\:\\ \n"
-   printf "\t  /  /:/ /:/_   /  /:/  \\:\\   /  /:/ /::\\  /__/::\\      /  /:/  \\:\\ \n"
-   printf "\t /__/:/ /:/ /\\ /__/:/ \\__\\:\\ /__/:/ /:/\\:\\ \\__\\/\\:\\__  /__/:/ \\__\\:\\ \n"
-   printf "\t \\  \\:\\/:/ /:/ \\  \\:\\ /  /:/ \\  \\:\\/:/~/:/    \\  \\:\\/\\ \\  \\:\\ /  /:/ \n"
-   printf "\t  \\  \\::/ /:/   \\  \\:\\  /:/   \\  \\::/ /:/      \\__\\::/  \\  \\:\\  /:/ \n"
-   printf "\t   \\  \\:\\/:/     \\  \\:\\/:/     \\__\\/ /:/       /__/:/    \\  \\:\\/:/ \n"
-   printf "\t    \\  \\::/       \\  \\::/        /__/:/        \\__\\/      \\  \\::/ \n"
-   printf "\t     \\__\\/         \\__\\/         \\__\\/                     \\__\\/ \n${txtrst}"
+   printf "\n\n${bldred}\t ______   _______  _______  _______  _______  _______  _______ \n"
+   printf "\t(  ___ \ (  ___  )(  ____ \(  ____ \(  ___  )(  ____ )(  ____ \ \n"
+   printf "\t| (   ) )| (   ) || (    \/| (    \/| (   ) || (    )|| (    \/\n"
+   printf "\t| (__/ / | |   | || (_____ | |      | |   | || (____)|| (__    \n"
+   printf "\t|  __ (  | |   | |(_____  )| |      | |   | ||     __)|  __)   \n"
+   printf "\t| (  \ \ | |   | |      ) || |      | |   | || (\ (   | (      \n"
+   printf "\t| )___) )| (___) |/\____) || (____/\| (___) || ) \ \__| (____/\ \n"
+   printf "\t|/ \___/ (_______)\_______)(_______/(_______)|/   \__/(_______/\n\n${txtrst}"   
 
-	printf "\\tFor more information:\\n"
-	printf "\\tEOSIO website: https://eos.io\\n"
+   printf "\\tFor more information:\\n"
+   printf "\\tBOSCore website: https://boscore.io\\n"

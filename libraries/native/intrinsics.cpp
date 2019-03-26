@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <eosio/action.h>
 #include <eosio/chain.h>
 #include <eosio/crypto.h>
@@ -10,6 +11,20 @@
 #include <eosio/types.h>
 #include "native/eosio/intrinsics.hpp"
 #include "native/eosio/crt.hpp"
+=======
+#include <eosiolib/action.h>
+#include <eosiolib/chain.h>
+#include <eosiolib/crypto.h>
+#include <eosiolib/db.h>
+#include <eosiolib/permission.h>
+#include <eosiolib/print.h>
+#include <eosiolib/privileged.h>
+#include <eosiolib/system.h>
+#include <eosiolib/transaction.h>
+#include <eosiolib/types.h>
+#include "intrinsics.hpp"
+#include "crt.hpp"
+>>>>>>> develop
 #include <softfloat.hpp>
 #include <float.h>
 
@@ -383,6 +398,10 @@ extern "C" {
    float _eosio_f32_copysign( float af, float bf ) {
       float32_t a = to_softfloat32(af);
       float32_t b = to_softfloat32(bf);
+<<<<<<< HEAD
+=======
+      uint32_t sign_of_a = a.v >> 31;
+>>>>>>> develop
       uint32_t sign_of_b = b.v >> 31;
       a.v &= ~(1 << 31);             // clear the sign bit
       a.v = a.v | (sign_of_b << 31); // add the sign of b
@@ -545,6 +564,10 @@ extern "C" {
    double _eosio_f64_copysign( double af, double bf ) {
       float64_t a = to_softfloat64(af);
       float64_t b = to_softfloat64(bf);
+<<<<<<< HEAD
+=======
+      uint64_t sign_of_a = a.v >> 63;
+>>>>>>> develop
       uint64_t sign_of_b = b.v >> 63;
       a.v &= ~(uint64_t(1) << 63);             // clear the sign bit
       a.v = a.v | (sign_of_b << 63); // add the sign of b
@@ -597,6 +620,10 @@ extern "C" {
       float64_t ret;
       int e = a.v >> 52 & 0x7FF;
       float64_t y;
+<<<<<<< HEAD
+=======
+      double de = 1/DBL_EPSILON;
+>>>>>>> develop
       if ( a.v == 0x8000000000000000) {
          return af;
       }
@@ -874,4 +901,18 @@ extern "C" {
       eosio_assert(false, "abort");
    }
 #pragma clang diagnostic pop
+<<<<<<< HEAD
+=======
+   
+   size_t __builtin_wasm_current_memory() {
+      return (size_t)___heap_ptr;
+   }
+
+   size_t __builtin_wasm_grow_memory(size_t size) {
+      if ((___heap_ptr + (size*64*1024)) > (___heap_ptr + 100*1024*1024))
+         eosio_assert(false, "__builtin_wasm_grow_memory");
+      ___heap_ptr += (size*64*1024);
+      return (size_t)___heap_ptr;
+   }
+>>>>>>> develop
 }

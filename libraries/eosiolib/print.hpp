@@ -11,10 +11,16 @@
 #include <utility>
 #include <string>
 
+<<<<<<< HEAD
 #warning "<eosiolib/print.hpp> is deprecated use <eosio/print.hpp>"
 /**
    *  @defgroup console Console C++ API
    *  @ingroup core
+=======
+/**
+   *  @defgroup console Console C++ API
+   *  @ingroup cpp_api
+>>>>>>> develop
    *  @brief Defines C++ wrapper to log/print text messages
    *
    *  @details This API uses C++ variadic templates and type detection to
@@ -52,7 +58,11 @@ namespace eosio {
     *
     * @param num to be printed
     */
+<<<<<<< HEAD
    template <typename T, std::enable_if_t<std::is_integral<std::decay_t<T>>::value &&
+=======
+   template <typename T, std::enable_if_t<std::is_integral<std::decay_t<T>>::value && 
+>>>>>>> develop
                                           std::is_signed<std::decay_t<T>>::value, int> = 0>
    inline void print( T num ) {
       if constexpr(std::is_same<T, int128_t>::value)
@@ -68,7 +78,11 @@ namespace eosio {
     *
     * @param num to be printed
     */
+<<<<<<< HEAD
    template <typename T, std::enable_if_t<std::is_integral<std::decay_t<T>>::value &&
+=======
+   template <typename T, std::enable_if_t<std::is_integral<std::decay_t<T>>::value && 
+>>>>>>> develop
                                           !std::is_signed<std::decay_t<T>>::value, int> = 0>
    inline void print( T num ) {
       if constexpr(std::is_same<T, uint128_t>::value)

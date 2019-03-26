@@ -7,9 +7,15 @@
 namespace eosio {
 
    /**
+<<<<<<< HEAD
    *  @defgroup producer_schedule Producer Schedule
    *  @ingroup contracts
    *  @brief Defines both the order, account name, and signing keys of the active set of producers.
+=======
+   *  @defgroup producer_schedule
+   *  @brief Defines both the order, account name, and signing keys of the active set of producers.
+   *  @ingroup types
+>>>>>>> develop
    *
    *  @{
    */

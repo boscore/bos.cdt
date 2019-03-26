@@ -16,7 +16,11 @@ namespace eosio {
 
   /**
    * @defgroup transaction Transaction C++ API
+<<<<<<< HEAD
    * @ingroup contracts
+=======
+   * @ingroup cpp_api
+>>>>>>> develop
    * @brief Type-safe C++ wrappers for transaction C API
    *
    * @details An inline message allows one contract to send another contract a message
@@ -36,6 +40,12 @@ namespace eosio {
    */
    typedef std::tuple<uint16_t, std::vector<char>> extension;
    typedef std::vector<extension> extensions_type;
+
+
+   /**
+    * Class transaction_header contains details about the transaction
+    * @brief Contains details about the transaction
+    */
 
    /**
     * Class transaction_header contains details about the transaction

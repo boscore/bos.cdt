@@ -5,8 +5,11 @@
 #include <setjmp.h>
 #include <vector>
 
+<<<<<<< HEAD
 #warning "<eosio/native/tester.hpp> is deprecated use <eosio/tester.hpp>"
 
+=======
+>>>>>>> develop
 extern "C" bool ___disable_output;
 extern "C" bool ___has_failed;
 
@@ -67,7 +70,11 @@ inline bool expect_print(bool check, const std::string& li, Pred&& pred, F&& fun
    if (!check)
       eosio_assert(passed, std::string("error : wrong print message {"+li+"}").c_str());
    if (!passed)
+<<<<<<< HEAD
       eosio::print("error : wrong print message9 {"+li+"}\n");
+=======
+      eosio::print("error : wrong print message {"+li+"}\n");
+>>>>>>> develop
    silence_output(disable_out);
    return passed;
 }
@@ -76,7 +83,11 @@ template <size_t N, typename F, typename... Args>
 inline bool expect_print(bool check, const std::string& li, const char (&expected)[N], F&& func, Args... args) {
    return expect_print(check, li, 
          [&](const std::string& s) { 
+<<<<<<< HEAD
             return std_out.index == N-1 &&
+=======
+            return std_out.index-1 == N-1 &&
+>>>>>>> develop
             memcmp(expected, s.c_str(), N-1) == 0; }, func, args...);
 
 }

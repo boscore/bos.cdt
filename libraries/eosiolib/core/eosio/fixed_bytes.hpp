@@ -5,6 +5,8 @@
 #pragma once
 #include "datastream.hpp"
 
+#include "system.hpp"
+
 #include <array>
 #include <algorithm>
 #include <functional>
@@ -37,18 +39,31 @@ namespace eosio {
 
    /// @endcond
 
+<<<<<<< HEAD:libraries/eosiolib/core/eosio/fixed_bytes.hpp
     /**
      *  @defgroup fixed_bytes Fixed Size Byte Array
      *  @ingroup core
      *  @ingroup types
      *  @brief Fixed size array of bytes sorted lexicographically
      */
+=======
+   /**
+   *  @defgroup fixed_key Fixed Size Key
+   *  @ingroup types
+   *  @brief Fixed size key sorted lexicographically for Multi Index Table
+   *  @{
+   */
+>>>>>>> develop:libraries/eosiolib/fixed_key.hpp
 
    /**
     *  Fixed size byte array sorted lexicographically
     *
+<<<<<<< HEAD:libraries/eosiolib/core/eosio/fixed_bytes.hpp
     *  @ingroup fixed_bytes
     *  @tparam Size - Size of the fixed_bytes object
+=======
+    *  @tparam Size - Size of the fixed_key object
+>>>>>>> develop:libraries/eosiolib/fixed_key.hpp
     */
    template<size_t Size>
    class fixed_bytes {
@@ -74,7 +89,11 @@ namespace eosio {
                    continue;
                }
 
+<<<<<<< HEAD:libraries/eosiolib/core/eosio/fixed_bytes.hpp
                eosio::check( sub_words_left == 1, "unexpected error in fixed_bytes constructor" );
+=======
+               eosio::check( sub_words_left == 1, "unexpected error in fixed_key constructor" );
+>>>>>>> develop:libraries/eosiolib/fixed_key.hpp
                temp_word |= static_cast<word_t>(*w_itr);
                sub_words_left = num_sub_words;
 
@@ -94,24 +113,41 @@ namespace eosio {
          typedef uint128_t word_t;
 
          /**
+<<<<<<< HEAD:libraries/eosiolib/core/eosio/fixed_bytes.hpp
           * Get number of words contained in this fixed_bytes object. A word is defined to be 16 bytes in size
+=======
+          * Get number of words contained in this fixed_key object. A word is defined to be 16 bytes in size
+>>>>>>> develop:libraries/eosiolib/fixed_key.hpp
           */
 
          static constexpr size_t num_words() { return (Size + sizeof(word_t) - 1) / sizeof(word_t); }
 
          /**
+<<<<<<< HEAD:libraries/eosiolib/core/eosio/fixed_bytes.hpp
           * Get number of padded bytes contained in this fixed_bytes object. Padded bytes are the remaining bytes
           * inside the fixed_bytes object after all the words are allocated
+=======
+          * Get number of padded bytes contained in this fixed_key object. Padded bytes are the remaining bytes
+          * inside the fixed_key object after all the words are allocated
+>>>>>>> develop:libraries/eosiolib/fixed_key.hpp
           */
          static constexpr size_t padded_bytes() { return num_words() * sizeof(word_t) - Size; }
 
          /**
+<<<<<<< HEAD:libraries/eosiolib/core/eosio/fixed_bytes.hpp
          * Default constructor to fixed_bytes object which initializes all bytes to zero
+=======
+         * \Default constructor to fixed_key object
+>>>>>>> develop:libraries/eosiolib/fixed_key.hpp
          */
          constexpr fixed_bytes() : _data() {}
 
          /**
+<<<<<<< HEAD:libraries/eosiolib/core/eosio/fixed_bytes.hpp
          * Constructor to fixed_bytes object from std::array of num_words() word_t types
+=======
+         * Constructor to fixed_key object from std::array of num_words() words
+>>>>>>> develop:libraries/eosiolib/fixed_key.hpp
          *
          * @param arr    data
          */
@@ -121,7 +157,11 @@ namespace eosio {
          }
 
          /**
+<<<<<<< HEAD:libraries/eosiolib/core/eosio/fixed_bytes.hpp
          * Constructor to fixed_bytes object from std::array of Word types smaller in size than word_t
+=======
+         * Constructor to fixed_key object from std::array of num_words() words
+>>>>>>> develop:libraries/eosiolib/fixed_key.hpp
          *
          * @param arr - Source data
          */
@@ -159,12 +199,21 @@ namespace eosio {
          }
 
          /**
+<<<<<<< HEAD:libraries/eosiolib/core/eosio/fixed_bytes.hpp
          *  Create a new fixed_bytes object from a sequence of words
          *
          *  @tparam FirstWord - The type of the first word in the sequence
          *  @tparam Rest - The type of the remaining words in the sequence
          *  @param first_word - The first word in the sequence
          *  @param rest - The remaining words in the sequence
+=======
+         * Create a new fixed_key object from a sequence of words
+         *
+         * @tparam FirstWord - The type of the first word in the sequence
+         * @tparam Rest - The type of the remaining words in the sequence
+         * @param first_word - The first word in the sequence
+         * @param rest - The remaining words in the sequence
+>>>>>>> develop:libraries/eosiolib/fixed_key.hpp
          */
          template<typename FirstWord, typename... Rest>
          static
@@ -277,10 +326,17 @@ namespace eosio {
   /// @cond IMPLEMENTATIONS
 
    /**
+<<<<<<< HEAD:libraries/eosiolib/core/eosio/fixed_bytes.hpp
     * Lexicographically compares two fixed_bytes variables c1 and c2
     *
     * @param c1 - First fixed_bytes object to compare
     * @param c2 - Second fixed_bytes object to compare
+=======
+    * Lexicographically compares two fixed_key variables c1 and c2
+    *
+    * @param c1 - First fixed_key object to compare
+    * @param c2 - Second fixed_key object to compare
+>>>>>>> develop:libraries/eosiolib/fixed_key.hpp
     * @return if c1 == c2, return true, otherwise false
     */
    template<size_t Size>
@@ -289,10 +345,17 @@ namespace eosio {
    }
 
    /**
+<<<<<<< HEAD:libraries/eosiolib/core/eosio/fixed_bytes.hpp
     * Lexicographically compares two fixed_bytes variables c1 and c2
     *
     * @param c1 - First fixed_bytes object to compare
     * @param c2 - Second fixed_bytes object to compare
+=======
+    * Lexicographically compares two fixed_key variables c1 and c2
+    *
+    * @param c1 - First fixed_key object to compare
+    * @param c2 - Second fixed_key object to compare
+>>>>>>> develop:libraries/eosiolib/fixed_key.hpp
     * @return if c1 != c2, return true, otherwise false
     */
    template<size_t Size>
@@ -301,10 +364,17 @@ namespace eosio {
    }
 
    /**
+<<<<<<< HEAD:libraries/eosiolib/core/eosio/fixed_bytes.hpp
     * Lexicographically compares two fixed_bytes variables c1 and c2
     *
     * @param c1 - First fixed_bytes object to compare
     * @param c2 - Second fixed_bytes object to compare
+=======
+    * Lexicographically compares two fixed_key variables c1 and c2
+    *
+    * @param c1 - First fixed_key object to compare
+    * @param c2 - Second fixed_key object to compare
+>>>>>>> develop:libraries/eosiolib/fixed_key.hpp
     * @return if c1 > c2, return true, otherwise false
     */
    template<size_t Size>
@@ -313,10 +383,17 @@ namespace eosio {
    }
 
    /**
+<<<<<<< HEAD:libraries/eosiolib/core/eosio/fixed_bytes.hpp
     * Lexicographically compares two fixed_bytes variables c1 and c2
     *
     * @param c1 - First fixed_bytes object to compare
     * @param c2 - Second fixed_bytes object to compare
+=======
+    * Lexicographically compares two fixed_key variables c1 and c2
+    *
+    * @param c1 - First fixed_key object to compare
+    * @param c2 - Second fixed_key object to compare
+>>>>>>> develop:libraries/eosiolib/fixed_key.hpp
     * @return if c1 < c2, return true, otherwise false
     */
    template<size_t Size>
@@ -325,7 +402,11 @@ namespace eosio {
    }
 
    /**
+<<<<<<< HEAD:libraries/eosiolib/core/eosio/fixed_bytes.hpp
     * Lexicographically compares two fixed_bytes variables c1 and c2
+=======
+    * Compares two fixed_key variables c1 and c2
+>>>>>>> develop:libraries/eosiolib/fixed_key.hpp
     *
     * @param c1 - First fixed_bytes object to compare
     * @param c2 - Second fixed_bytes object to compare
@@ -337,7 +418,11 @@ namespace eosio {
    }
 
    /**
+<<<<<<< HEAD:libraries/eosiolib/core/eosio/fixed_bytes.hpp
     * Lexicographically compares two fixed_bytes variables c1 and c2
+=======
+    * Compares two fixed_key variables c1 and c2
+>>>>>>> develop:libraries/eosiolib/fixed_key.hpp
     *
     * @param c1 - First fixed_bytes object to compare
     * @param c2 - Second fixed_bytes object to compare
@@ -349,6 +434,7 @@ namespace eosio {
    }
 
 
+<<<<<<< HEAD:libraries/eosiolib/core/eosio/fixed_bytes.hpp
    using checksum160 = fixed_bytes<20>;
    using checksum256 = fixed_bytes<32>;
    using checksum512 = fixed_bytes<64>;
@@ -387,4 +473,8 @@ namespace eosio {
    }
 
    /// @endcond
+=======
+   typedef fixed_key<32> key256;
+   ///@}
+>>>>>>> develop:libraries/eosiolib/fixed_key.hpp
 }

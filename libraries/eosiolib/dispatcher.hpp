@@ -42,7 +42,11 @@ namespace eosio {
 
    /**
     * @addtogroup dispatcher Dispatcher C++ API
+<<<<<<< HEAD
     * @ingroup core
+=======
+    * @ingroup cpp_api
+>>>>>>> develop
     * @brief Defines C++ functions to dispatch action to proper action handler inside a contract
     * @{
     */
@@ -86,6 +90,7 @@ namespace eosio {
       return true;
    }
 
+<<<<<<< HEAD
    /// @}
 
  // Helper macro for EOSIO_DISPATCH_INTERNAL
@@ -97,6 +102,23 @@ namespace eosio {
  // Helper macro for EOSIO_DISPATCH
  #define EOSIO_DISPATCH_HELPER( TYPE,  MEMBERS ) \
     BOOST_PP_SEQ_FOR_EACH( EOSIO_DISPATCH_INTERNAL, TYPE, MEMBERS )
+=======
+/// @}
+
+
+
+ // Helper macro for EOSIO_DISPATCH_INTERNAL
+ #define EOSIO_DISPATCH_INTERNAL( r, OP, elem ) \
+    case eosio::name( BOOST_PP_STRINGIZE(elem) ).value: \
+       eosio::execute_action( eosio::name(receiver), eosio::name(code), &OP::elem ); \
+       break;
+
+ // Helper macro for EOSIO_DISPATCH
+ #define EOSIO_DISPATCH_HELPER( TYPE,  MEMBERS ) \
+    BOOST_PP_SEQ_FOR_EACH( EOSIO_DISPATCH_INTERNAL, TYPE, MEMBERS )
+
+
+>>>>>>> develop
 
 /**
  * @addtogroup dispatcher

@@ -5,7 +5,10 @@
 #pragma once
 #include "types.h"
 
+<<<<<<< HEAD
 #warning "<eosiolib/system.h> is deprecated use <eosio/system.h>. If you are using C++ the .h header files will be removed from inclusion entirely in v1.7.0"
+=======
+>>>>>>> develop
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -67,8 +70,16 @@ extern "C" {
     *  eosio_exit(3);
     *  @endcode
     */
+<<<<<<< HEAD
    __attribute__((eosio_wasm_import, noreturn))
    void eosio_exit( int32_t code );
+=======
+#ifdef __cplusplus
+   [[noreturn]]
+#endif
+   void  eosio_exit( int32_t code );
+
+>>>>>>> develop
 
    /**
     *  Returns the time in microseconds from 1970 of the current block

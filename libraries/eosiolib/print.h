@@ -6,8 +6,11 @@
 
 #include "types.h"
 
+<<<<<<< HEAD
 #warning "<eosiolib/print.h> is deprecated use <eosio/print.h>. If you are using C++ the .h header files will be removed from inclusion entirely in v1.7.0"
 
+=======
+>>>>>>> develop
 /**
  *  @defgroup console_c Console C API
  *  @ingroup c_api
@@ -178,8 +181,12 @@ extern "C" {
     * printhex(&rawData, 9);
     * @endcode
     */
+<<<<<<< HEAD
    __attribute__((eosio_wasm_import))
    void printhex( const void* data, uint32_t datalen );
+=======
+    void printhex( const void* data, uint32_t datalen );
+>>>>>>> develop
 
    /// @}
 #ifdef __cplusplus

@@ -32,3 +32,5 @@ ACTION multi_index_example::mod( name user, uint32_t n ) {
       row.datum = n;
    });
 }
+
+

@@ -5,8 +5,11 @@
 #pragma once
 #include "types.h"
 
+<<<<<<< HEAD
 #warning "<eosiolib/crypto.h> is deprecated use <eosio/crypto.h>. If you are using C++ the .h header files will be removed from inclusion entirely in v1.7.0"
 
+=======
+>>>>>>> develop
 /**
  *  @addtogroup crypto Crypto
  *  @brief Defines %C API for calculating and checking hash
