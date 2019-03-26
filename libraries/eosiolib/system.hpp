@@ -4,26 +4,16 @@
  */
 #pragma once
 #include "system.h"
-<<<<<<< HEAD
 #include <alloca.h>
 #include <string>
 
 #warning "<eosiolib/system.hpp> is deprecated use <eosio/system.hpp>"
-=======
-#include <string>
-
->>>>>>> develop
 namespace eosio {
 
    /**
     *  @addtogroup system System C++ API
-<<<<<<< HEAD
     *  @ingroup core
     *  @brief Defines wrappers over eosio_assert
-=======
-    *  @ingroup cpp_api
-    *  @brief Defines wrappers over eosio_assert 
->>>>>>> develop
     *
     *  @{
     */

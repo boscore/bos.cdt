@@ -1,16 +1,9 @@
-<<<<<<< HEAD
 #include <eosio/action.hpp>
-=======
-#include <eosiolib/action.hpp>
->>>>>>> develop
 #include "intrinsics_def.hpp"
 
 #pragma once
 
-<<<<<<< HEAD
 #warning "<eosio/native/intrinsics.hpp> is deprecated use <eosio/intrinsics.hpp>"
-=======
->>>>>>> develop
 namespace eosio { namespace native {
    
    class intrinsics {

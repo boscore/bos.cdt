@@ -16,11 +16,7 @@ namespace eosio {
 
   /**
    * @defgroup transaction Transaction C++ API
-<<<<<<< HEAD
    * @ingroup contracts
-=======
-   * @ingroup cpp_api
->>>>>>> develop
    * @brief Type-safe C++ wrappers for transaction C API
    *
    * @details An inline message allows one contract to send another contract a message

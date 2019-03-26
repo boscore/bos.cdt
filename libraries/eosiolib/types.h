@@ -14,15 +14,6 @@ extern "C" {
 #endif
 
 /**
-<<<<<<< HEAD
-=======
- *  @defgroup c_types
- *  @ingroup c_api
- *  @brief Specifies builtin types, typedefs and aliases
- */
-
-/**
->>>>>>> develop
  *  @addtogroup c_types
  *  @brief Specifies builtin types, typedefs and aliases
  *  @{

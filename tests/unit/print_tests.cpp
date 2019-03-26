@@ -1,19 +1,10 @@
-<<<<<<< HEAD
 #include <eosio/eosio.hpp>
 #include <eosio/tester.hpp>
-=======
-#include <eosiolib/eosio.hpp>
-#include <eosio/native/tester.hpp>
->>>>>>> develop
 
 using namespace eosio::native;
 
 EOSIO_TEST_BEGIN(print_test)
-<<<<<<< HEAD
    silence_output(false);
-=======
-   silence_output(true);
->>>>>>> develop
    CHECK_PRINT("27", [](){ eosio::print((uint8_t)27); });
    CHECK_PRINT("34", [](){ eosio::print((int)34); });
    CHECK_PRINT([](std::string s){return s[0] == 'a';},  [](){ eosio::print((char)'a'); });

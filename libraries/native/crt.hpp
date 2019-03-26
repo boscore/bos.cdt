@@ -1,10 +1,7 @@
 #pragma once
 #include <setjmp.h>
 
-<<<<<<< HEAD
 #warning "<eosio/native/crt.hpp> is deprecated use <eosio/crt.hpp>"
-=======
->>>>>>> develop
 namespace eosio { namespace cdt {
    enum output_stream_kind {
       std_out,

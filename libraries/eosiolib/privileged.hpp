@@ -7,16 +7,10 @@
 namespace eosio {
 
   /**
-<<<<<<< HEAD
    * Defines C++ Privileged API
    *
    * @addtogroup privileged Privileged C++ API
    * @ingroup contracts
-=======
-   * @addtogroup privileged Privileged C++ API
-   * @ingroup cpp_api
-   * Defines C++ Privileged API
->>>>>>> develop
    * @{
    */
 
@@ -158,11 +152,7 @@ namespace eosio {
    ///@}
 
    /**
-<<<<<<< HEAD
    *  @ingroup core
-=======
-   *  @defgroup types
->>>>>>> develop
    *  @{
    */
 

@@ -4,12 +4,6 @@
  */
 #pragma once
 #include "types.h"
-<<<<<<< HEAD
-=======
-#include <eosiolib/eosio.hpp>
-
-using namespace eosio;
->>>>>>> develop
 
 #warning "<eosiolib/transaction.h> is deprecated use <eosio/transaction.h>. If you are using C++ the .h header files will be removed from inclusion entirely in v1.7.0"
 extern "C" {

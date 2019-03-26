@@ -1,14 +1,7 @@
-<<<<<<< HEAD
 #include <eosio/name.hpp>
 #include <eosio/action.hpp>
 #include "native/eosio/intrinsics.hpp"
 #include "native/eosio/crt.hpp"
-=======
-#include <eosiolib/name.hpp>
-#include <eosiolib/action.hpp>
-#include "intrinsics.hpp"
-#include "crt.hpp"
->>>>>>> develop
 #include <cstdint>
 #include <functional>
 #include <stdio.h>
@@ -18,14 +11,6 @@ eosio::cdt::output_stream std_out;
 eosio::cdt::output_stream std_err;
 
 extern "C" {
-<<<<<<< HEAD
-=======
-#ifdef __APPLE__
-   void* alloca(size_t s) {
-      return malloc(s);
-   }
-#endif
->>>>>>> develop
    int main(int, char**);
    char* _mmap();
    
@@ -35,7 +20,6 @@ extern "C" {
    jmp_buf* ___env_ptr = &env;
    char* ___heap;
    char* ___heap_ptr;
-<<<<<<< HEAD
    char* ___heap_base_ptr;
    size_t ___pages;
    void ___putc(char c);
@@ -56,11 +40,6 @@ extern "C" {
       ___heap_ptr += (size*64*1024);
       return ++___pages;
    }
-=======
-   void ___putc(char c);
-   bool ___disable_output;
-   bool ___has_failed;
->>>>>>> develop
 
    void _prints_l(const char* cstr, uint32_t len, uint8_t which) {
       for (int i=0; i < len; i++) {
@@ -96,11 +75,8 @@ extern "C" {
       int ret_val = 0;
       ___heap = _mmap();
       ___heap_ptr = ___heap;
-<<<<<<< HEAD
       ___heap_base_ptr = ___heap;
       ___pages = 1;
-=======
->>>>>>> develop
       ___disable_output = false;
       ___has_failed = false;
       // preset the print functions
@@ -111,7 +87,6 @@ extern "C" {
             _prints(cs, eosio::cdt::output_stream_kind::std_out);
          });
       intrinsics::set_intrinsic<intrinsics::printi>([](int64_t v) {
-<<<<<<< HEAD
             printf("%lli", v);
          });
       intrinsics::set_intrinsic<intrinsics::printui>([](uint64_t v) {
@@ -124,20 +99,6 @@ extern "C" {
       intrinsics::set_intrinsic<intrinsics::printui128>([](const uint128_t* v) {
             int* tmp = (int*)v;
             printf("0x%04x%04x%04x%04x", tmp[0], tmp[1], tmp[2], tmp[3]);
-=======
-            printf("%lli\n", v);
-         });
-      intrinsics::set_intrinsic<intrinsics::printui>([](uint64_t v) {
-            printf("%llu\n", v);
-         });
-      intrinsics::set_intrinsic<intrinsics::printi128>([](const int128_t* v) {
-            int* tmp = (int*)v;
-            printf("0x%04x%04x%04x%04x\n", tmp[0], tmp[1], tmp[2], tmp[3]);
-         });
-      intrinsics::set_intrinsic<intrinsics::printui128>([](const uint128_t* v) {
-            int* tmp = (int*)v;
-            printf("0x%04x%04x%04x%04x\n", tmp[0], tmp[1], tmp[2], tmp[3]);
->>>>>>> develop
          });
       intrinsics::set_intrinsic<intrinsics::printsf>([](float v) {
             char buff[512] = {0};
@@ -169,11 +130,7 @@ extern "C" {
          });
       intrinsics::set_intrinsic<intrinsics::printqf>([](const long double* v) {
             int* tmp = (int*)v;
-<<<<<<< HEAD
             printf("0x%04x%04x%04x%04x", tmp[0], tmp[1], tmp[2], tmp[3]);
-=======
-            printf("0x%04x%04x%04x%04x\n", tmp[0], tmp[1], tmp[2], tmp[3]);
->>>>>>> develop
          });
       intrinsics::set_intrinsic<intrinsics::printn>([](uint64_t nm) {
             std::string s = eosio::name(nm).to_string();
@@ -188,17 +145,10 @@ extern "C" {
       }
       return ret_val;
    }
-<<<<<<< HEAD
    
    extern "C" void* memset(void*, int, size_t);
    extern "C" void __bzero(void* to, size_t cnt) {
       char* cp{static_cast<char*>(to)};
       while (cnt--) *cp++ = 0;
-=======
-
-   extern "C" void* memset(void*, int, size_t);
-   extern "C" void __bzero(void* to, size_t cnt) {
-      memset(to, 0, cnt);
->>>>>>> develop
    }
 }

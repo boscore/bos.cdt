@@ -22,11 +22,8 @@
 #include <algorithm>
 #include <memory>
 
-<<<<<<< HEAD
 #warning "<eosiolib/multi_index.hpp> is deprecated use <eosio/multi_index.hpp>"
 
-=======
->>>>>>> develop
 namespace eosio {
 
 constexpr static inline name same_payer{};
@@ -197,11 +194,7 @@ struct indexed_by {
 /**
  *  @defgroup multi_index Multi Index Table
  *  @brief Defines EOSIO Multi Index Table
-<<<<<<< HEAD
  *  @ingroup contracts
-=======
- *  @ingroup cpp_api
->>>>>>> develop
  *
  *  @details EOSIO Multi-Index API provides a C++ interface to the EOSIO database. It is patterned after Boost Multi Index Container.
  *  EOSIO Multi-Index table requires exactly a uint64_t primary key. For the table to be able to retrieve the primary key,

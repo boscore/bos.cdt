@@ -10,11 +10,8 @@
 #include <algorithm>
 #include <type_traits>
 
-<<<<<<< HEAD
 #warning "<eosiolib/fixed_bytes.hpp> is deprecated use <eosio/fixed_bytes.hpp>"
 
-=======
->>>>>>> develop
 namespace eosio {
 
    template<size_t Size>
@@ -40,11 +37,6 @@ namespace eosio {
 
     /**
     *  @defgroup fixed_bytes Fixed Size Byte Array
-<<<<<<< HEAD
-=======
-    *  @ingroup types
-    *  @brief Fixed size array of bytes sorted lexicographically
->>>>>>> develop
     *  @ingroup types
     *  @brief Fixed size array of bytes sorted lexicographically
     *  @{

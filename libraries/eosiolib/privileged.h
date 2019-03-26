@@ -47,17 +47,6 @@ extern "C" {
    int64_t set_proposed_producers( char *producer_data, uint32_t producer_data_size );
 
    /**
-<<<<<<< HEAD
-=======
-    * Set new active producers. Producers will only be activated once the block which starts the next round is irrreversible
-    *
-    * @param producer_data - pointer to producer schedule packed as bytes
-    * @param producer_data_size - size of the packed producer schedule
-    * @pre `producer_data` is a valid pointer to a range of memory at least `producer_data_size` bytes long that contains serialized produced schedule data
-    */
-   void set_active_producers( char *producer_data, uint32_t producer_data_size );
-   /**
->>>>>>> develop
     * Check if an account is privileged
     *
     * @param account - name of the account to be checked
@@ -109,19 +98,6 @@ extern "C" {
     */
    void set_name_list_packed(int64_t list, int64_t action, char* data, uint32_t datalen);
 
-<<<<<<< HEAD
-=======
-   /**
-    * @brief Set the guaranteed minimum resources object
-    * Set the guaranteed minimum resources object
-    * @param ram gift ram bytes
-    * @param cpu gift cpu microsecond
-    * @param net gift net bytes
-    */
-   void set_guaranteed_minimum_resources(int64_t ram, int64_t cpu, int64_t net);
-   /* bos end */
-
->>>>>>> develop
 #ifdef __cplusplus
 }
 #endif

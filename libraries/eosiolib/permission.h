@@ -4,11 +4,8 @@
  */
 #pragma once
 #include "types.h"
-<<<<<<< HEAD
 
 #warning "<eosiolib/permission.h> is deprecated use <eosio/permission.h>. If you are using C++ the .h header files will be removed from inclusion entirely in v1.7.0"
-=======
->>>>>>> develop
 
 extern "C" {
 

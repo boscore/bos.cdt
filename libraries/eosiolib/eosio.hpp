@@ -9,11 +9,8 @@
 #include "dispatcher.hpp"
 #include "contract.hpp"
 
-<<<<<<< HEAD
 #warning "<eosiolib/eosio.hpp> is deprecated use <eosio/eosio.hpp>"
 
-=======
->>>>>>> develop
 #ifndef EOSIO_NATIVE
 static_assert( sizeof(long) == sizeof(int), "unexpected size difference" );
 #endif
@@ -26,7 +23,6 @@ static_assert( sizeof(long) == sizeof(int), "unexpected size difference" );
 #define TABLE struct [[eosio::table]]
 
 /**
-<<<<<<< HEAD
  * @defgroup core Core API
  * @brief C++ Core API for chain-agnostic smart-contract functionality
  */
@@ -40,13 +36,3 @@ static_assert( sizeof(long) == sizeof(int), "unexpected size difference" );
  * @defgroup types Types
  * @brief TODO
  */
-=======
- * @defgroup c_api C API
- * @brief C++ API for writing ESIO Smart Contracts
- */
-
- /**
-  * @defgroup cpp_api C++ API
-  * @brief C++ API for writing ESIO Smart Contracts
-  */
->>>>>>> develop
