@@ -36,10 +36,6 @@ endmacro( eosio_tool_install_and_symlink )
 macro( eosio_libraries_install)
    execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/lib)
    execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/include)
-<<<<<<< HEAD:modules/InstallCDT.cmake
-=======
-   set(BIN_DIR ${CMAKE_BINARY_DIR}/EosioWasmLibraries-prefix/src/EosioWasmLibraries-build/)
->>>>>>> develop:modules/InstallCDT.cmake
    install(DIRECTORY ${CMAKE_BINARY_DIR}/lib/ DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
    install(DIRECTORY ${CMAKE_BINARY_DIR}/include/ DESTINATION ${CMAKE_INSTALL_FULL_INCLUDEDIR})
 endmacro( eosio_libraries_install )
