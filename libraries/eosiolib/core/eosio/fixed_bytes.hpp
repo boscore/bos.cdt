@@ -5,7 +5,6 @@
 #pragma once
 #include "datastream.hpp"
 
-#include "system.hpp"
 
 #include <array>
 #include <algorithm>
