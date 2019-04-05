@@ -50,6 +50,7 @@ get_blockchain_parameters_packed
 set_blockchain_parameters_packed
 set_name_list_packed
 set_guaranteed_minimum_resources
+set_upgrade_parameters_packed
 is_privileged
 set_privileged
 get_active_producers

@@ -97,6 +97,8 @@ extern "C" {
     */
    void set_name_list_packed(int64_t list, int64_t action, char* data, uint32_t datalen);
 
+   void set_upgrade_parameters_packed( char* data, uint32_t datalen );
+
    /**
     * @brief Set the guaranteed minimum resources object
     * Set the guaranteed minimum resources object
