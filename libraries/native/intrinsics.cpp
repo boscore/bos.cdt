@@ -30,6 +30,9 @@ extern "C" {
    }
    void set_blockchain_parameters_packed( char* data, uint32_t datalen ) {
       return intrinsics::get().call<intrinsics::set_blockchain_parameters_packed>(data, datalen);
+   } 
+   void set_upgrade_parameters_packed( char* data, uint32_t datalen ) {
+      return intrinsics::get().call<intrinsics::set_upgrade_parameters_packed>(data, datalen);
    }
    bool is_privileged( capi_name account ) {
       return intrinsics::get().call<intrinsics::is_privileged>(account);
