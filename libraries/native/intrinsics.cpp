@@ -30,7 +30,7 @@ extern "C" {
    }
    void set_blockchain_parameters_packed( char* data, uint32_t datalen ) {
       return intrinsics::get().call<intrinsics::set_blockchain_parameters_packed>(data, datalen);
-   } 
+   }
    void set_upgrade_parameters_packed( char* data, uint32_t datalen ) {
       return intrinsics::get().call<intrinsics::set_upgrade_parameters_packed>(data, datalen);
    }
